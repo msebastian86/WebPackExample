@@ -1,0 +1,1 @@
+alert('tutej bedzie kontakt');
