@@ -1,5 +1,5 @@
-import '../css/main.css';
 import { x } from './libs/lib';
-alert('Brum brum!');
+import '../css/main.css';
+import '../scss/main.scss';
 
 console.log(x);

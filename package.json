@@ -2,9 +2,10 @@
   "name": "webpacktest",
   "version": "1.0.0",
   "description": "testujemy webpacka",
+  "author": "Sebastian Marzec <msebastian86@gmail.com>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"po wpisaiu komendy to sie uruchomi np npm test lub yarn test\" && exit 1",
     "start": "webpack --config webpack.config.js"
   },
   "author": "",
@@ -14,6 +15,8 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.9",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0"
   }

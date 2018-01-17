@@ -30,6 +30,11 @@ module.exports = {
         	   test: /\.css$/,
         	   // używamy jednocześnie 2 loaderów dla plików .css, można je tutaj równiez konfigórować jak wyzje z babel loaderem
         	   use: [ 'style-loader', 'css-loader' ]
+        	},
+        	{
+        	   test: /\.scss$/,
+        	   // css-loader can import them in .js files, style-loader will be usefull when including it to HTML file
+        	   use: [ 'style-loader', 'css-loader', 'sass-loader' ]
         	}
   	   ]
   	}
