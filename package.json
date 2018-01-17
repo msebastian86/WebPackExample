@@ -2,22 +2,23 @@
   "name": "webpacktest",
   "version": "1.0.0",
   "description": "testujemy webpacka",
-  "author": "Sebastian Marzec <msebastian86@gmail.com>",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"po wpisaiu komendy to sie uruchomi np npm test lub yarn test\" && exit 1",
     "start": "webpack --config webpack.config.js"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.9",
+    "file-loader": "^1.1.6",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
     "webpack": "^3.10.0"
   }
 }

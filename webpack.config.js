@@ -35,6 +35,17 @@ module.exports = {
         	   test: /\.scss$/,
         	   // css-loader can import them in .js files, style-loader will be usefull when including it to HTML file
         	   use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+        	},
+        	{
+     	      test: /\.(png|jpg|gif)$/,
+     	      use: [
+     	        {
+     	          loader: 'url-loader',
+     	          options: {
+     	            limit: 8192
+     	          }
+     	        }
+     	      ]
         	}
   	   ]
   	}

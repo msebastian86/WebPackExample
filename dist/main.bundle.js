@@ -530,6 +530,12 @@ __webpack_require__(4);
 
 __webpack_require__(7);
 
+var _vegeta = __webpack_require__(9);
+
+var _vegeta2 = _interopRequireDefault(_vegeta);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 console.log(_lib.x);
 
 /***/ }),
@@ -728,6 +734,12 @@ exports.push([module.i, "body {\n  color: blue; }\n", ""]);
 
 // exports
 
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "70c270b9ba1c9ea777eb640185d7908f.jpg";
 
 /***/ })
 /******/ ]);
