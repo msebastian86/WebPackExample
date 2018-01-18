@@ -1,4 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');  // tutaj sa pluginy webpacka
+const ExtractTextPlugin = require("extract-text-webpack-plugin"); // dodatkowo zainstalowany plugin (yarn add --dev extract-text-webpack-plugin)
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {	
   	entry: {
@@ -28,13 +32,20 @@ module.exports = {
         	},
         	{
         	   test: /\.css$/,
-        	   // używamy jednocześnie 2 loaderów dla plików .css, można je tutaj równiez konfigórować jak wyzje z babel loaderem
-        	   use: [ 'style-loader', 'css-loader' ]
+        	   use: ExtractTextPlugin.extract({
+        	   	fallback: 'style-loader',
+        	   	use: 'css-loader'
+        	   })
         	},
         	{
         	   test: /\.scss$/,
         	   // css-loader can import them in .js files, style-loader will be usefull when including it to HTML file
-        	   use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+        	   use: ExtractTextPlugin.extract({
+        	   	fallback: 'style-loader',
+        	   // używamy jednocześnie kilku loaderów dla plików .scss, można je tutaj równiez konfigórować jak wyzje z babel loaderem
+        	   	use: ['css-loader', 'sass-loader' ]
+        	   })
+        	   // use: [ 'style-loader', 'css-loader', 'sass-loader' ] <- tak wyglądało bez użycia pluginu "ExtractTextPlugin", bez fallback i extract
         	},
         	{
      	      test: /\.(png|jpg|gif)$/,
@@ -48,5 +59,21 @@ module.exports = {
      	      ]
         	}
   	   ]
-  	}
+  	},
+  	plugins: [
+  		// importujemy z pakietów zdefiniowanych u samej góry
+  		// ten plugin dzieli dodatkowe bundle które mozna zalaczyć na kazdej podstronie jako wymagany przez wszystkie bundle
+  	   new webpack.optimize.CommonsChunkPlugin({
+  	      name: 'vendor',
+  	      filename: 'vendor.bundle.js'
+  	   }),
+  	   new webpack.optimize.UglifyJsPlugin({
+  	      beautify: true,
+  	      comments: false
+  	   }),
+  	   new ExtractTextPlugin({
+  	      filename: '[name].bundle.css'
+  	   })
+  	   // new HtmlWebpackPlugin() // <- do generowania pliku index.html, w którym automatycznie załączane są odpowiednie “bundle” (zarówno JS jak i CSS)
+  	]
 };
