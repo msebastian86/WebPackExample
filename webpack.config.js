@@ -42,7 +42,7 @@ module.exports = {
         	   // css-loader can import them in .js files, style-loader will be usefull when including it to HTML file
         	   use: ExtractTextPlugin.extract({
         	   	fallback: 'style-loader',
-        	   // używamy jednocześnie kilku loaderów dla plików .scss, można je tutaj równiez konfigórować jak wyzje z babel loaderem
+        	   // używamy jednocześnie kilku loaderów dla plików .scss, można je tutaj równiez konfigurować jak wyzje z babel loaderem
         	   	use: ['css-loader', 'sass-loader' ]
         	   })
         	   // use: [ 'style-loader', 'css-loader', 'sass-loader' ] <- tak wyglądało bez użycia pluginu "ExtractTextPlugin", bez fallback i extract
